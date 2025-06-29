@@ -11,6 +11,10 @@ networks:
     external: true
   gluetun_network:
     external: true
+  
+env_file:
+  - path: ./.env
+    required: true # default
       
 services:
   # REVERSE PROXY IS IN OTHER DOCKER COMPOSE STACK
