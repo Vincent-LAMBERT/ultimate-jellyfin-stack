@@ -2,15 +2,15 @@ version: "3.0"
 
 networks:
   proxy:
-    external: true
+    # external: true
   jellyfin_default:
-    external: true
+    # external: true
   starr:
-    external: true
+    # external: true
   jellystat:
-    external: true
+    # external: true
   gluetun_network:
-    external: true
+    # external: true
       
 services:
   # REVERSE PROXY IS IN OTHER DOCKER COMPOSE STACK
