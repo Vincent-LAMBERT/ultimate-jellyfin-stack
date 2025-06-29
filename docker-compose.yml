@@ -417,7 +417,7 @@ services:
       - PUBLICIP_API_TOKEN=${PUBLICIP_TOKEN}
     ports:
       - 2468:2468/tcp # cross-seed
-      - 8080:8080/tcp # qBit
+      - 8090:8080/tcp # qBit
       - 8694:8694/tcp # qBit
       - 5656:5656/tcp # kapowarr
       - 8191:8191/tcp # flaresolverr
@@ -531,7 +531,7 @@ services:
       POSTGRES_PORT: 5432
       JWT_SECRET: ${JWT_SECRET:-'my-secret-jwt-key'}
     ports:
-      - 3000:3000 #Server Port
+      - 3010:3000 #Server Port
     volumes:
       - ${BASE_PATH}/jellystat/postgres-backup:/app/backend/backup-data # Mounting the volume
     depends_on:
