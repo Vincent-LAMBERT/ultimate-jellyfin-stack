@@ -83,25 +83,25 @@ services:
         ipv4_address: ${SONARR_IPV4}
     restart: unless-stopped
   
-  #Readarr - Used to download books
-  readarr:
-    image: lscr.io/linuxserver/readarr:develop
-    platform: linux/amd64
-    env_file: "./.env"
-    container_name: readarr
-    environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - TZ=${TZ}
-    volumes:
-      - ${BASE_PATH}/readarr/config:/config
-      - ${MEDIA_SHARE}:/data
-    ports:
-      - 8787:8787
-    networks:
-      - proxy
-      - starr
-    restart: unless-stopped
+  # #Readarr - Used to download books
+  # readarr:
+  #   image: lscr.io/linuxserver/readarr:develop
+  #   platform: linux/amd64
+  #   env_file: "./.env"
+  #   container_name: readarr
+  #   environment:
+  #     - PUID=${PUID}
+  #     - PGID=${PGID}
+  #     - TZ=${TZ}
+  #   volumes:
+  #     - ${BASE_PATH}/readarr/config:/config
+  #     - ${MEDIA_SHARE}:/data
+  #   ports:
+  #     - 8787:8787
+  #   networks:
+  #     - proxy
+  #     - starr
+  #   restart: unless-stopped
     
   #Lidarr - Used to download music 
   lidarr:
