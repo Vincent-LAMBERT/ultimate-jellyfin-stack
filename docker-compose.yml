@@ -19,6 +19,7 @@ services:
   #This can also be replaced by Emby/Plex
   jellyfin:
     image: ghcr.io/linuxserver/jellyfin:latest
+    platform: linux/amd64
     container_name: jellyfin
     environment:
       - JELLYFIN_PublishedServerUrl=${JELLYFIN_URL}
@@ -40,6 +41,7 @@ services:
   #Radarr - used to find movies automatically
   radarr:
     image: lscr.io/linuxserver/radarr:latest
+    platform: linux/amd64
     container_name: radarr
     environment:
       - PUID=${PUID}
@@ -60,6 +62,7 @@ services:
   #Sonarr - used to find shows automatically
   sonarr:
     image: lscr.io/linuxserver/sonarr:latest
+    platform: linux/amd64
     container_name: sonarr
     environment:
       - PUID=${PUID}
@@ -80,6 +83,7 @@ services:
   #Readarr - Used to download books
   readarr:
     image: lscr.io/linuxserver/readarr:develop
+    platform: linux/amd64
     container_name: readarr
     environment:
       - PUID=${PUID}
@@ -98,6 +102,7 @@ services:
   #Lidarr - Used to download music 
   lidarr:
     image: lscr.io/linuxserver/lidarr:latest
+    platform: linux/amd64
     container_name: lidarr
     environment:
       - PUID=${PUID}
@@ -131,6 +136,7 @@ services:
   #Prowlarr - manages your Sonarr, Radarr and download client
   prowlarr:
     image: lscr.io/linuxserver/prowlarr:latest
+    platform: linux/amd64
     container_name: prowlarr
     network_mode: "service:gluetun"
     environment:
@@ -157,6 +163,7 @@ services:
   #jellyseer - allows users to request media on their own
   jellyseerr:
     image: fallenbagel/jellyseerr:latest
+    platform: linux/amd64
     container_name: jellyseerr
     environment:
       - PUID=${PUID}
@@ -176,6 +183,7 @@ services:
   flaresolverr:
     # DockerHub mirror flaresolverr/flaresolverr:latest
     image: alexfozor/flaresolverr:pr-1300-experimental
+    platform: linux/amd64
     container_name: flaresolverr
     network_mode: "service:gluetun"
     environment:
@@ -192,6 +200,7 @@ services:
   #You can also use RuTorrent, Transmisson or Deluge
   qbittorrent:
     image: lscr.io/linuxserver/qbittorrent:latest
+    platform: linux/amd64
     container_name: qbittorrent
     network_mode: "service:gluetun"
     environment:
@@ -212,6 +221,7 @@ services:
   tdarr:
     container_name: tdarr
     image: ghcr.io/haveagitgat/tdarr:latest
+    platform: linux/amd64
     restart: unless-stopped
     ports:
       - 8265:8265 # webUI port
@@ -243,6 +253,7 @@ services:
   bazarr:
     container_name: bazarr
     image: lscr.io/linuxserver/bazarr:latest
+    platform: linux/amd64
     restart: unless-stopped
     environment:
       - PUID=${PUID}
@@ -262,6 +273,7 @@ services:
   #This is fairly advanced but can be removed if you don't think you will need it. Some trackers also don't allow this
   cross-seed:
     image: ghcr.io/cross-seed/cross-seed:latest
+    platform: linux/amd64
     container_name: cross-seed
     network_mode: "service:gluetun"
     user: ${PUID}:${PGID}
@@ -281,6 +293,7 @@ services:
   wizarr:
     container_name: wizarr
     image: ghcr.io/wizarrrr/wizarr:latest
+    platform: linux/amd64
     restart: unless-stopped
     user: ${PUID}:${PGID}
     ports:
@@ -300,6 +313,7 @@ services:
   dozzle:
     container_name: dozzle
     image: amir20/dozzle:latest
+    platform: linux/amd64
     restart: unless-stopped
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
@@ -309,6 +323,7 @@ services:
   #Unpacker - Used to unzip zipped files
   unpackerr:
     image: ghcr.io/hotio/unpackerr:latest
+    platform: linux/amd64
     container_name: unpackerr
     volumes:
       # You need at least this one volume mapped so Unpackerr can find your files to extract.
@@ -343,6 +358,7 @@ services:
 
   cabernet:
     image: ghcr.io/cabernetwork/cabernet:latest
+    platform: linux/amd64
     container_name: cabernet
     restart: unless-stopped
     volumes:
@@ -360,6 +376,7 @@ services:
       
   gluetun:
     image: qmcgaw/gluetun:latest
+    platform: linux/amd64
     container_name: gluetun
     cap_add:
       - NET_ADMIN
@@ -395,6 +412,7 @@ services:
   homarr:
     container_name: homarr
     image: ghcr.io/ajnart/homarr:latest
+    platform: linux/amd64
     restart: unless-stopped
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock # Optional, only if you want docker integration
@@ -408,6 +426,7 @@ services:
 
   decluttarr:
     image: ghcr.io/manimatter/decluttarr:latest
+    platform: linux/amd64
     container_name: decluttarr
     restart: unless-stopped
     environment:
@@ -464,6 +483,7 @@ services:
 
   jellystat-db:
     image: postgres:15.2
+    platform: linux/amd64
     container_name: jellystat-db
     environment:
       POSTGRES_DB: 'jfstat'
@@ -477,6 +497,7 @@ services:
 
   jellystat:
     image: cyfershepard/jellystat:latest
+    platform: linux/amd64
     container_name: jellystat
     environment:
       POSTGRES_USER: ${JELLYSTATDB_USER:-postgres}
