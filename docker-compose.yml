@@ -20,9 +20,7 @@ services:
   jellyfin:
     image: ghcr.io/linuxserver/jellyfin:latest
     platform: linux/amd64
-    env_file:
-      - path: ./.env
-        required: true # default
+    env_file: "./.env"
     container_name: jellyfin
     environment:
       - JELLYFIN_PublishedServerUrl=${JELLYFIN_URL}
@@ -45,9 +43,7 @@ services:
   radarr:
     image: lscr.io/linuxserver/radarr:latest
     platform: linux/amd64
-    env_file:
-      - path: ./.env
-        required: true # default
+    env_file: "./.env"
     container_name: radarr
     environment:
       - PUID=${PUID}
@@ -69,9 +65,7 @@ services:
   sonarr:
     image: lscr.io/linuxserver/sonarr:latest
     platform: linux/amd64
-    env_file:
-      - path: ./.env
-        required: true # default
+    env_file: "./.env"
     container_name: sonarr
     environment:
       - PUID=${PUID}
@@ -93,9 +87,7 @@ services:
   readarr:
     image: lscr.io/linuxserver/readarr:develop
     platform: linux/amd64
-    env_file:
-      - path: ./.env
-        required: true # default
+    env_file: "./.env"
     container_name: readarr
     environment:
       - PUID=${PUID}
@@ -115,9 +107,7 @@ services:
   lidarr:
     image: lscr.io/linuxserver/lidarr:latest
     platform: linux/amd64
-    env_file:
-      - path: ./.env
-        required: true # default
+    env_file: "./.env"
     container_name: lidarr
     environment:
       - PUID=${PUID}
@@ -137,9 +127,7 @@ services:
   kapowarr:
     image: 'mrcas/kapowarr:latest'
     platform: linux/amd64
-    env_file:
-      - path: ./.env
-        required: true # default
+    env_file: "./.env"
     container_name: kapowarr
     network_mode: "service:gluetun"
     environment:
@@ -156,9 +144,7 @@ services:
   prowlarr:
     image: lscr.io/linuxserver/prowlarr:latest
     platform: linux/amd64
-    env_file:
-      - path: ./.env
-        required: true # default
+    env_file: "./.env"
     container_name: prowlarr
     network_mode: "service:gluetun"
     environment:
@@ -174,9 +160,7 @@ services:
     container_name: autobrr
     image: ghcr.io/autobrr/autobrr:latest
     platform: linux/amd64
-    env_file:
-      - path: ./.env
-        required: true # default
+    env_file: "./.env"
     restart: unless-stopped
     network_mode: "service:gluetun"
     environment:
@@ -190,9 +174,7 @@ services:
   jellyseerr:
     image: fallenbagel/jellyseerr:latest
     platform: linux/amd64
-    env_file:
-      - path: ./.env
-        required: true # default
+    env_file: "./.env"
     container_name: jellyseerr
     environment:
       - PUID=${PUID}
@@ -213,9 +195,7 @@ services:
     # DockerHub mirror flaresolverr/flaresolverr:latest
     image: alexfozor/flaresolverr:pr-1300-experimental
     platform: linux/amd64
-    env_file:
-      - path: ./.env
-        required: true # default
+    env_file: "./.env"
     container_name: flaresolverr
     network_mode: "service:gluetun"
     environment:
@@ -233,9 +213,7 @@ services:
   qbittorrent:
     image: lscr.io/linuxserver/qbittorrent:latest
     platform: linux/amd64
-    env_file:
-      - path: ./.env
-        required: true # default
+    env_file: "./.env"
     container_name: qbittorrent
     network_mode: "service:gluetun"
     environment:
@@ -257,9 +235,7 @@ services:
     container_name: tdarr
     image: ghcr.io/haveagitgat/tdarr:latest
     platform: linux/amd64
-    env_file:
-      - path: ./.env
-        required: true # default
+    env_file: "./.env"
     restart: unless-stopped
     ports:
       - 8265:8265 # webUI port
@@ -292,9 +268,7 @@ services:
     container_name: bazarr
     image: lscr.io/linuxserver/bazarr:latest
     platform: linux/amd64
-    env_file:
-      - path: ./.env
-        required: true # default
+    env_file: "./.env"
     restart: unless-stopped
     environment:
       - PUID=${PUID}
@@ -315,9 +289,7 @@ services:
   cross-seed:
     image: ghcr.io/cross-seed/cross-seed:latest
     platform: linux/amd64
-    env_file:
-      - path: ./.env
-        required: true # default
+    env_file: "./.env"
     container_name: cross-seed
     network_mode: "service:gluetun"
     user: ${PUID}:${PGID}
@@ -338,9 +310,7 @@ services:
     container_name: wizarr
     image: ghcr.io/wizarrrr/wizarr:latest
     platform: linux/amd64
-    env_file:
-      - path: ./.env
-        required: true # default
+    env_file: "./.env"
     restart: unless-stopped
     user: ${PUID}:${PGID}
     ports:
@@ -361,9 +331,7 @@ services:
     container_name: dozzle
     image: amir20/dozzle:latest
     platform: linux/amd64
-    env_file:
-      - path: ./.env
-        required: true # default
+    env_file: "./.env"
     restart: unless-stopped
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
@@ -374,9 +342,7 @@ services:
   unpackerr:
     image: ghcr.io/hotio/unpackerr:latest
     platform: linux/amd64
-    env_file:
-      - path: ./.env
-        required: true # default
+    env_file: "./.env"
     container_name: unpackerr
     volumes:
       # You need at least this one volume mapped so Unpackerr can find your files to extract.
@@ -412,9 +378,7 @@ services:
   cabernet:
     image: ghcr.io/cabernetwork/cabernet:latest
     platform: linux/amd64
-    env_file:
-      - path: ./.env
-        required: true # default
+    env_file: "./.env"
     container_name: cabernet
     restart: unless-stopped
     volumes:
@@ -433,9 +397,7 @@ services:
   gluetun:
     image: qmcgaw/gluetun:latest
     platform: linux/amd64
-    env_file:
-      - path: ./.env
-        required: true # default
+    env_file: "./.env"
     container_name: gluetun
     cap_add:
       - NET_ADMIN
@@ -472,9 +434,7 @@ services:
     container_name: homarr
     image: ghcr.io/ajnart/homarr:latest
     platform: linux/amd64
-    env_file:
-      - path: ./.env
-        required: true # default
+    env_file: "./.env"
     restart: unless-stopped
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock # Optional, only if you want docker integration
@@ -489,9 +449,7 @@ services:
   decluttarr:
     image: ghcr.io/manimatter/decluttarr:latest
     platform: linux/amd64
-    env_file:
-      - path: ./.env
-        required: true # default
+    env_file: "./.env"
     container_name: decluttarr
     restart: unless-stopped
     environment:
@@ -549,9 +507,7 @@ services:
   jellystat-db:
     image: postgres:15.2
     platform: linux/amd64
-    env_file:
-      - path: ./.env
-        required: true # default
+    env_file: "./.env"
     container_name: jellystat-db
     environment:
       POSTGRES_DB: 'jfstat'
@@ -566,9 +522,7 @@ services:
   jellystat:
     image: cyfershepard/jellystat:latest
     platform: linux/amd64
-    env_file:
-      - path: ./.env
-        required: true # default
+    env_file: "./.env"
     container_name: jellystat
     environment:
       POSTGRES_USER: ${JELLYSTATDB_USER:-postgres}
